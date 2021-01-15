@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SunnyWeather</string>
+    <string name="search_edit">输入地址</string>
+    <string name="no_place_search">未查询到任何地点</string>
+</resources>
