@@ -3,6 +3,7 @@ package com.jesen.cod.sunnyweather.logic
  * 将异步获取的数据以响应式编程方式通知给上一层
  * **/
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.liveData
 import com.jesen.cod.sunnyweather.logic.model.Place
 import com.jesen.cod.sunnyweather.logic.model.Weather
@@ -26,7 +27,9 @@ object Repository {
     }
 
     fun refreshWeather(lng:String, lat:String) = fire(Dispatchers.IO) {
-            // 开辟协程
+        Log.i("Repository","${lat} , ${lng}" )
+
+        // 开辟协程
             coroutineScope{
                 val deferredRealtime = async {
                     WeatherNetwork.getRealtimeWeather(lng,lat)

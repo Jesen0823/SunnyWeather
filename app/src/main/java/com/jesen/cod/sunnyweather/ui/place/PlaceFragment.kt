@@ -26,13 +26,14 @@ class PlaceFragment:Fragment() {
         return inflater.inflate(R.layout.fragment_place, container, false)
     }
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val layoutManager = LinearLayoutManager(activity)
         recycleView.layoutManager = layoutManager
         adapter = PlaceAdapter(this, viewModel.placeList)
         recycleView.adapter = adapter
-        searchPlaceEdit.addTextChangedListener { editable ->
+        searchPlaceEdit.addTextChangedListener() { editable ->
             val content = editable.toString()
             if (content.isNotEmpty()){
                 viewModel.searchPlaces(content)
