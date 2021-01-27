@@ -8,4 +8,5 @@
     <string name="clothers">穿衣</string>
     <string name="ultraviolet">实时紫外线</string>
     <string name="wash_car">洗车</string>
+    <string name="get_weather_faild">无法成功获取天气信息</string>
 </resources>

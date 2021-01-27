@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jesen.cod.sunnyweather.MainActivity
 import com.jesen.cod.sunnyweather.R
 import com.jesen.cod.sunnyweather.ui.weather.WeatherActivity
 import kotlinx.android.synthetic.main.fragment_place.*
@@ -31,10 +32,9 @@ class PlaceFragment:Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        if (canSavedPlace()){
-            return
-        }
+            if (canSavedPlace()) {
+                return
+            }
         val layoutManager = LinearLayoutManager(activity)
         recycleView.layoutManager = layoutManager
         adapter = PlaceAdapter(this, viewModel.placeList)
@@ -68,7 +68,7 @@ class PlaceFragment:Fragment() {
     }
 
     private fun canSavedPlace(): Boolean {
-        return if (viewModel.isSavedPlace()){
+        return if (activity is MainActivity && viewModel.isSavedPlace()){
             val place = viewModel.getSavedPlace()
             val intent = Intent(context, WeatherActivity::class.java).apply {
                 putExtra("location_lng",place.location.lng)
