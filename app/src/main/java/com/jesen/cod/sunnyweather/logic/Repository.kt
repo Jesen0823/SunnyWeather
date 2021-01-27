@@ -4,7 +4,9 @@ package com.jesen.cod.sunnyweather.logic
  * **/
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.liveData
+import com.jesen.cod.sunnyweather.R
 import com.jesen.cod.sunnyweather.logic.dao.PlaceDao
 import com.jesen.cod.sunnyweather.logic.model.Place
 import com.jesen.cod.sunnyweather.logic.model.Weather
