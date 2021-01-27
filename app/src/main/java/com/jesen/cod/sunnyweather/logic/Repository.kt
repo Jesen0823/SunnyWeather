@@ -5,6 +5,7 @@ package com.jesen.cod.sunnyweather.logic
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.liveData
+import com.jesen.cod.sunnyweather.logic.dao.PlaceDao
 import com.jesen.cod.sunnyweather.logic.model.Place
 import com.jesen.cod.sunnyweather.logic.model.Weather
 import com.jesen.cod.sunnyweather.logic.network.WeatherNetwork
@@ -61,4 +62,9 @@ object Repository {
             }
             emit(result)
         }
+
+    // 仓库层封装地名存储，再封装到ViewModel
+    fun savePlace(place: Place) = PlaceDao.savePlace(place)
+    fun getSavedPlace() = PlaceDao.getSavedPlace()
+    fun isSavedPlace() = PlaceDao.isPlaceSaved()
 }
