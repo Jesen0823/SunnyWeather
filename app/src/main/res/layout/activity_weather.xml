@@ -24,11 +24,17 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <include layout="@layout/now" />
+                <include
+                    android:id="@+id/nowLayout"
+                    layout="@layout/now" />
 
-                <include layout="@layout/forecast" />
+                <include
+                    android:id="@+id/forecastLayout"
+                    layout="@layout/forecast" />
 
-                <include layout="@layout/life_index" />
+                <include
+                    android:id="@+id/lifeIndexLayout"
+                    layout="@layout/life_index" />
             </LinearLayout>
         </ScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

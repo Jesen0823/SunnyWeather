@@ -1,8 +1,8 @@
 package com.jesen.cod.sunnyweather.ui.weather
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.switchMap
 import com.jesen.cod.sunnyweather.logic.Repository
 import com.jesen.cod.sunnyweather.logic.model.Location
 
@@ -13,11 +13,11 @@ class WeatherViewModel : ViewModel() {
     var locationLat = ""
     var placeName = ""
 
-    val weatherLiveData = Transformations.switchMap(locationLiveData){location ->
-        Repository.refreshWeather(location.lng, location.lat)
+    val weatherLiveData = locationLiveData.switchMap {
+        Repository.refreshWeather(it.lng, it.lat)
     }
 
-    fun refreshWeather(lng:String, lat:String){
-        locationLiveData.value = Location(lng,lat)
+    fun refreshWeather(lng: String, lat: String) {
+        locationLiveData.value = Location(lng, lat)
     }
 }
